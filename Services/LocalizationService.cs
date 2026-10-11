@@ -57,7 +57,7 @@ public class LocalizationService : INotifyPropertyChanged
     public bool IsJapanese => _currentCulture.StartsWith("ja", StringComparison.OrdinalIgnoreCase);
 
     // 文言プロパティ一覧
-    public string AppTitle => IsJapanese ? "WoodStream Audio Editor - ポッドキャスト音声編集ツール" : "WoodStream Audio Editor - Podcast Audio Processor";
+    public string AppTitle => IsJapanese ? "WoodStream Podcast Editor - ポッドキャスト音声編集ツール" : "WoodStream Podcast Editor - Podcast Audio Processor";
     
     // パネルヘッダー
     public string SectionInputOutput => IsJapanese ? "1. ファイル入出力" : "1. File Input & Output";

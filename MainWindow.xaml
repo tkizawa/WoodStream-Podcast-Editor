@@ -43,7 +43,7 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Image Source="Resources/app.png" Width="34" Height="34" Margin="0,0,12,0" />
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock Text="WoodStream Audio Editor" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource AccentCyanBrush}" />
+                        <TextBlock Text="WoodStream Podcast Editor" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource AccentCyanBrush}" />
                         <TextBlock Text="Podcast Master Processor &amp; ID3 Tagger" FontSize="11" Foreground="{DynamicResource TextSecondaryBrush}" />
                     </StackPanel>
                 </StackPanel>

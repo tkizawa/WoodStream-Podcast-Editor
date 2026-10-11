@@ -106,6 +106,55 @@ public class UnitTests
     }
 
     /// <summary>
+    /// デフォルトの設定ファイル保存先が %LOCALAPPDATA%\WoodStream Podcast Editor\settings.json になっていることの検証
+    /// </summary>
+    [TestMethod]
+    public void TestSettingsDefaultPath_WoodStreamPodcastEditor()
+    {
+        var service = new SettingsService();
+        string expectedPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "WoodStream Podcast Editor",
+            "settings.json");
+
+        Assert.AreEqual(expectedPath, service.SettingsFilePath);
+    }
+
+    /// <summary>
+    /// 旧保存先 (WoodStream Audio Editor) から新保存先 (WoodStream Podcast Editor) への自動移行（マイグレーション）検証
+    /// </summary>
+    [TestMethod]
+    public void TestSettingsMigration_FromLegacyAudioEditor()
+    {
+        string legacyPath = Path.Combine(_tempDir, "legacy", "settings.json");
+        string newPath = Path.Combine(_tempDir, "new", "settings.json");
+
+        // 旧設定ファイルを作成
+        Directory.CreateDirectory(Path.GetDirectoryName(legacyPath)!);
+        var legacySettings = new AppSettings
+        {
+            DefaultArtist = "移行元アーティスト",
+            DefaultTitle = "移行元タイトル",
+            SilenceThresholdDb = -48.0
+        };
+
+        var legacyService = new SettingsService(legacyPath);
+        legacyService.Save(legacySettings);
+        Assert.IsTrue(File.Exists(legacyPath));
+        Assert.IsFalse(File.Exists(newPath));
+
+        // 新しい SettingsService でロードを実行（旧パスを指定）
+        var newService = new SettingsService(newPath, legacyPath);
+        var loaded = newService.Load();
+
+        // 新パスに設定ファイルが自動作成され、内容が引き継がれていることを検証
+        Assert.IsTrue(File.Exists(newPath), "新設定ファイルが自動生成されていること");
+        Assert.AreEqual("移行元アーティスト", loaded.DefaultArtist);
+        Assert.AreEqual("移行元タイトル", loaded.DefaultTitle);
+        Assert.AreEqual(-48.0, loaded.SilenceThresholdDb);
+    }
+
+    /// <summary>
     /// 無音自動削除 (SilenceTruncationSampleProvider) の検証
     /// 1秒の音 + 3秒の無音 + 1秒の音 を入力し、400msを超える無音部分がカットされることを検証
     /// </summary>

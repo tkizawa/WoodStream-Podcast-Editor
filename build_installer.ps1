@@ -1,4 +1,4 @@
-﻿param(
+param(
     [ValidateSet("x64", "arm64", "all")]
     [string]$Architecture
 )
@@ -6,7 +6,7 @@
 $ErrorActionPreference = "Stop"
 
 # プロジェクト情報およびバージョンの取得
-$projPath = Join-Path $PSScriptRoot "WoodStreamAudioEditor.csproj"
+$projPath = Join-Path $PSScriptRoot "WoodStreamPodcastEditor.csproj"
 [xml]$projXml = Get-Content $projPath
 $version = $projXml.Project.PropertyGroup.Version
 if (-not $version) { $version = $projXml.Project.PropertyGroup.FileVersion }
@@ -24,7 +24,7 @@ if ($Architecture -eq "all") {
 }
 
 
-Write-Host "=== WoodStream Audio Editor スタンドアロンインストーラー作成 (v$version) ===" -ForegroundColor Cyan
+Write-Host "=== WoodStream Podcast Editor スタンドアロンインストーラー作成 (v$version) ===" -ForegroundColor Cyan
 
 # 出力先ディレクトリ (規約: .\Installer)
 $installerDir = Join-Path $PSScriptRoot "Installer"
@@ -91,7 +91,7 @@ foreach ($arch in $targetArchs) {
         exit $LASTEXITCODE
     }
 
-    $outputBaseFilename = "WoodStreamAudioEditor_Setup_v${version}_$arch"
+    $outputBaseFilename = "WoodStreamPodcastEditor_Setup_v${version}_$arch"
 
     Write-Host "Inno Setup によるインストーラー作成中 ($outputBaseFilename.exe)..." -ForegroundColor Green
     & $innoSetupPath "/DMyAppVersion=$version" "/DMyAppArch=$arch" "/DMyOutputDir=$installerDir" "/DMyOutputBaseFilename=$outputBaseFilename" "/DMySourceDir=$publishDir" "$issFile"

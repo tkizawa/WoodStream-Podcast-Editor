@@ -2,6 +2,6 @@
   <Configurations>
     <Platform Name="x64" />
   </Configurations>
-  <Project Path="WoodStreamAudioEditor.csproj" />
+  <Project Path="WoodStreamPodcastEditor.csproj" />
   <Project Path="WoodStreamAudioEditor.Tests/WoodStreamAudioEditor.Tests.csproj" />
 </Solution>

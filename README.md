@@ -1,4 +1,4 @@
-# WoodStream Audio Editor
+# WoodStream Podcast Editor
 
 ![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20x64-blue?logo=windows)
@@ -50,7 +50,7 @@
 8. **モダン UI & 状態永続化**
    - Windows のテーマ設定（ダークモード / ライトモード）に自動連動。
    - 多言語対応（日本語 / 英語）。
-   - アプリ終了時にすべての画面設定・入力値・ウィンドウ位置とサイズを `%LOCALAPPDATA%\WoodStream Audio Editor\settings.json` へ完全保存し、次回起動時に自動復元。
+   - アプリ終了時にすべての画面設定・入力値・ウィンドウ位置とサイズを `%LOCALAPPDATA%\WoodStream Podcast Editor\settings.json` へ完全保存し、次回起動時に自動復元。
 
 ---
 
@@ -68,8 +68,8 @@
 
 ```powershell
 # リポジトリのクローン
-git clone https://github.com/tkizawa/WoodStream-Audio-Editor.git
-cd WoodStream-Audio-Editor
+git clone https://github.com/tkizawa/WoodStream-Podcast-Editor.git
+cd WoodStream-Podcast-Editor
 
 # ビルド
 dotnet build

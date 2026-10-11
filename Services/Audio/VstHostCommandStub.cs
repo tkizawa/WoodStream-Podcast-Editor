@@ -42,7 +42,7 @@ public class VstHostCommandStub : IVstHostCommandStub, IVstHostCommands20
     public VstAutomationStates GetAutomationState() => VstAutomationStates.Off;
     public VstTimeInfo? GetTimeInfo(VstTimeInfoFlags filter) => null;
     public string GetVendorString() => "WoodStream";
-    public string GetProductString() => "WoodStream Audio Editor";
+    public string GetProductString() => "WoodStream Podcast Editor";
     public int GetVendorVersion() => 1000;
 
     public VstCanDoResult CanDo(string cando)

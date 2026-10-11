@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WoodStreamAudioEditor.csproj" SetPlatform="Platform=x64" />
+    <ProjectReference Include="..\WoodStreamPodcastEditor.csproj" SetPlatform="Platform=x64" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-; WoodStream Audio Editor - Inno Setup Script
+; WoodStream Podcast Editor - Inno Setup Script
 ; プロジェクトルール:
 ; - スタンドアロンインストーラは exe 形式で .\Installer フォルダに作成し、ファイル名にはバージョン番号を含めること。
 ; - 実行環境のアーキテクチャ (x64, arm64 等) に合わせたものを作成すること。
@@ -19,10 +19,10 @@
   #define MySourceDir "publish\win-" + MyAppArch
 #endif
 
-#define MyAppName "WoodStream Audio Editor"
+#define MyAppName "WoodStream Podcast Editor"
 #define MyAppPublisher "tkizawa"
-#define MyAppExeName "WoodStreamAudioEditor.exe"
-#define MyOutputBaseFilename "WoodStreamAudioEditor_Setup_v" + MyAppVersion + "_" + MyAppArch
+#define MyAppExeName "WoodStreamPodcastEditor.exe"
+#define MyOutputBaseFilename "WoodStreamPodcastEditor_Setup_v" + MyAppVersion + "_" + MyAppArch
 
 [Setup]
 AppId={{06773897-23A8-462E-A0B8-BE371D694FF2}
